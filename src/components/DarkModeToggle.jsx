@@ -1,20 +1,12 @@
-import React from 'react';
+import React from "react";
 
-function DarkModeToggle({ darkMode, onToggle }) {
+function DarkModeToggle({ darkMode, setDarkMode }) {
   return (
-    <button 
-      onClick={onToggle}
-      style={{
-        padding: '8px 16px',
-        cursor: 'pointer',
-        borderRadius: '4px',
-        border: '1px solid #ccc',
-        backgroundColor: darkMode ? '#fff' : '#333',
-        color: darkMode ? '#303030' : '#fff',
-        fontWeight: 'bold'
-      }}
+    <button
+      onClick={() => setDarkMode(!darkMode)}
+      className="theme-button"
     >
-      {darkMode ? 'Toggle Light Mode' : 'Toggle Dark Mode'}
+      {darkMode ? "Toggle Light Mode" : "Toggle Dark Mode"}
     </button>
   );
 }

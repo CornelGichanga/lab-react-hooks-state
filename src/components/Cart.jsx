@@ -1,27 +1,33 @@
-import React from 'react';
+import React from "react";
 
-function Cart({ cartItems }) {
-  if (cartItems.length === 0) {
-    return <p>Your cart is empty.</p>;
-  }
+function Cart({ cart }) {
+  const total = cart.reduce(
+    (sum, product) => sum + product.price,
+    0
+  );
 
   return (
-    <ul style={{ listStyleType: 'none', padding: 0 }}>
-      {cartItems.map(item => (
-        <li 
-          key={item.id} 
-          style={{ 
-            padding: '10px', 
-            marginBottom: '8px', 
-            backgroundColor: 'rgba(0, 123, 255, 0.1)', 
-            borderRadius: '4px',
-            borderLeft: '4px solid #007bff'
-          }}
-        >
-          {item.name} is in your cart.
-        </li>
-      ))}
-    </ul>
+    <div className="cart">
+
+      <h2>Shopping Cart</h2>
+
+      {cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <ul>
+          {cart.map((product, index) => (
+            <li key={`${product.id}-${index}`}>
+              {product.name} - KSh {product.price}
+            </li>
+          ))}
+        </ul>
+      )}
+
+      <h3>Total: KSh {total}</h3>
+
+      <p>Items in cart: {cart.length}</p>
+
+    </div>
   );
 }
 

@@ -1,42 +1,143 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+* {
+  box-sizing: border-box;
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.app {
+  min-height: 100vh;
+  padding: 30px;
+  transition: background 0.3s, color 0.3s;
+}
+
+.light-mode {
+  background-color: #f4f6f8;
+  color: #222;
+}
+
+.dark-mode {
+  background-color: #1e1e2f;
+  color: white;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 15px;
+  margin-bottom: 30px;
+}
+
+header h1 {
+  color: #26965b;
+}
+
+button {
+  padding: 10px 16px;
+  border: none;
+  border-radius: 6px;
+  background-color: #26965b;
+  color: white;
+  cursor: pointer;
+  font-size: 14px;
+}
+
+button:hover {
+  background-color: #197343;
+}
+
+.theme-button {
+  background-color: #444;
+}
+
+.filter-section {
+  margin-bottom: 25px;
+}
+
+select {
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-left: 10px;
+}
+
+.product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.product-card {
+  background: white;
+  color: #222;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.08);
+}
+
+.product-card h3 {
+  color: #26965b;
+}
+
+.cart {
+  margin-top: 35px;
+  padding: 20px;
+  border-radius: 10px;
+  background: #e5f5eb;
+  color: #222;
+}
+
+.cart h2 {
+  color: #197343;
+}
+
+.cart li {
+  margin-bottom: 10px;
+}
+
+/* Dark mode styling */
+
+.dark-mode .product-card {
+  background-color: #303047;
+  color: white;
+}
+
+.dark-mode .cart {
+  background-color: #303047;
+  color: white;
+}
+
+.dark-mode .cart h2 {
+  color: #72d99b;
+}
+
+.dark-mode header h1 {
+  color: #72d99b;
+}
+
+.dark-mode select {
+  background-color: #303047;
+  color: white;
+  border-color: #666;
+}
+
+/* Mobile responsiveness */
+
+@media (max-width: 600px) {
+  .app {
+    padding: 15px;
   }
-  to {
-    transform: rotate(360deg);
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
   }
-}
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
+  .product-list {
+    grid-template-columns: 1fr;
   }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
 }

@@ -1,16 +1,18 @@
-import React from 'react';
-import ProductCard from './ProductCard';
+import React from "react";
+import ProductCard from "./ProductCard";
 
-function ProductList({ products, onAddToCart }) {
-  if (products.length === 0) {
-    return <p>No products found in this category.</p>;
-  }
-
+function ProductList({ products, addToCart }) {
   return (
-    <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(200px, 1fr))', gap: '15px' }}>
-      {products.map(product => (
-        <ProductCard key={product.id} product={product} onAddToCart={onAddToCart} />
+    <div className="product-list">
+
+      {products.map((product) => (
+        <ProductCard
+          key={product.id}
+          product={product}
+          addToCart={addToCart}
+        />
       ))}
+
     </div>
   );
 }
