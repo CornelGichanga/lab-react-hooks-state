@@ -1,3 +1,4 @@
+
 import React from "react";
 
 function ProductCard({ product, addToCart }) {
@@ -10,7 +11,10 @@ function ProductCard({ product, addToCart }) {
 
       <p>Price: KSh {product.price}</p>
 
-      <button onClick={() => addToCart(product)}>
+      <button
+        data-testid={`product-${product.id}`}
+        onClick={() => addToCart(product)}
+      >
         Add to Cart
       </button>
 

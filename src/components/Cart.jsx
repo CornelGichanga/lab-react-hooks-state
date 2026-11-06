@@ -1,6 +1,7 @@
+
 import React from "react";
 
-function Cart({ cart }) {
+function Cart({ cart = [] }) {
   const total = cart.reduce(
     (sum, product) => sum + product.price,
     0
@@ -17,7 +18,7 @@ function Cart({ cart }) {
         <ul>
           {cart.map((product, index) => (
             <li key={`${product.id}-${index}`}>
-              {product.name} - KSh {product.price}
+              {product.name} is in your cart
             </li>
           ))}
         </ul>
